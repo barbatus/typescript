@@ -194,8 +194,15 @@ TypeScript = class TypeScript {
       let fileResult = fileResultMap.get(fileName) || {};
 
       if (ts.fileExtensionIs(fileName, '.map')) {
-        fileResult.sourceMapPath = fileName;
-        fileResult.sourceMap = outputText;
+        // Gets source map path as a module name
+        // in order to keep package prefix for
+        // files from a package.
+        let sourceMapPath = options.moduleName ?
+          options.moduleName(file) : options.filePath(file);
+        let sourceMap = TypeScript._prepareSourceMap(
+          outputText, file.getContentsAsString(), sourceMapPath);
+        fileResult.sourceMapPath = sourceMapPath;
+        fileResult.sourceMap = sourceMap;
       } else {
         fileResult.path = fileName;
         fileResult.data = outputText;
@@ -258,7 +265,10 @@ TypeScript = class TypeScript {
           TypeScript.normalizePath(options.filePath)) return;
 
       if (ts.fileExtensionIs(fileName, '.map')) {
-        sourceMap = outputText;
+        let sourceMapPath = options.moduleName ?
+          options.moduleName : options.filePath;
+        sourceMap = TypeScript._prepareSourceMap(
+          outputText, fileContent, sourceMapPath);
       } else {
         data = outputText;
       }
@@ -270,6 +280,13 @@ TypeScript = class TypeScript {
     let diagnostics = this._readDiagnostics(program, options.filePath);
 
     return { data, sourceMap, referencedPaths, diagnostics };
+  }
+
+  static _prepareSourceMap(sourceMapContent, fileContent, sourceMapPath) {
+    let sourceMapJson = JSON.parse(sourceMapContent);
+    sourceMapJson.sourcesContent = [fileContent];
+    sourceMapJson.sources = [sourceMapPath];
+    return sourceMapJson;
   }
 
   static _getReferencedPaths(sourceFile) {
