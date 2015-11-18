@@ -51,8 +51,9 @@ function normalizeRef(refPath, filePath) {
   let refDir = ts.getDirectoryPath(ts.normalizeSlashes(refPath));
   let fileDir = ts.getDirectoryPath(ts.normalizeSlashes(filePath));
 
-  let refParts = refDir.split('/');
-  let fileParts = fileDir.split('/').reverse();
+  // Split and remove empty strings.
+  let refParts = _.compact(refDir.split('/'));
+  let fileParts = _.compact(fileDir.split('/')).reverse();
 
   let count = 0;
   // Resolve every front ../
@@ -66,7 +67,8 @@ function normalizeRef(refPath, filePath) {
     count++;
   }
 
-  let resultPath = fileParts.reverse().concat(refParts.slice(count));
+  let resultPath = fileParts.reverse().concat(
+    refParts.slice(count));
   resultPath.push(ts.getBaseFileName(refPath));
 
   // Resolve every other ../
