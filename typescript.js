@@ -174,9 +174,10 @@ TypeScript = class TypeScript {
 
     let customHost = {
       getSourceFile: (fileName, target) => {
-        let sourceFile = defaultHost.getSourceFile(fileName, target);
         let file = fileMap.get(fileName);
-        if (!file) return  sourceFile;
+        if (!file) return  defaultHost.getSourceFile(fileName, target);
+        let sourceFile = ts.createSourceFile(options.filePath(file),
+          file.getContentsAsString(), target);
 
         sourceFile.moduleName = options.moduleName &&
           options.moduleName(file);
