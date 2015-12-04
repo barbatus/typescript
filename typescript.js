@@ -111,9 +111,6 @@ TypeScript = class TypeScript {
     // Support decorators by default.
     compilerOptions.experimentalDecorators = true;
 
-    // Always emit imports for unresolved files.
-    compilerOptions.isolatedModules = true;
-
     // Declaration files are expected to
     // be generated separately.
     compilerOptions.declaration = false;
