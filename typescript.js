@@ -24,15 +24,19 @@ class CompilerDiagnostics {
     this.semantic = semantic;
   }
 
-  logSyntactic() {
+  forEachSyntactic(callback: Function) {
+    check(callback, Function);
+
     this.syntactic.forEach(diagnostic => {
-      console.log(diagnostic.formattedMsg);
+      callback(diagnostic);
     });
   }
 
-  logSemantic() {
+  forEachSemantic(callback: Function) {
+    check(callback, Function);
+
     this.semantic.forEach(diagnostic => {
-      console.log(diagnostic.formattedMsg);
+      callback(diagnostic);
     });
   }
 }
@@ -110,6 +114,7 @@ TypeScript = class TypeScript {
 
     // Support decorators by default.
     compilerOptions.experimentalDecorators = true;
+    compilerOptions.emitDecoratorMetadata = true;
 
     // Declaration files are expected to
     // be generated separately.
@@ -140,6 +145,10 @@ TypeScript = class TypeScript {
     compilerOptions.rootDir = null;
     compilerOptions.sourceRoot = null;
 
+    if (!compilerOptions.module) {
+      compilerOptions.module = ts.ModuleKind.System;
+    }
+
     return compilerOptions;
   }
   
@@ -159,7 +168,8 @@ TypeScript = class TypeScript {
   }
 
   static _transpileFiles(files, options, onFileReadyCallback) {
-    let compilerOptions = TypeScript.getCompilerOptions(options);
+    let compilerOptions = TypeScript.getCompilerOptions(
+      options.compilerOptions);
 
     let defaultHost = ts.createCompilerHost(compilerOptions);
 
@@ -183,7 +193,9 @@ TypeScript = class TypeScript {
     };
 
     let compilerHost = _.extend({}, defaultHost, customHost);
-    let fileNames = files.map(file => options.filePath(file));
+    let fileNames = _.union(
+      files.map(file => options.filePath(file)),
+      options.typings || []);
     let program = ts.createProgram(fileNames, compilerOptions, compilerHost);
 
     // Emit
@@ -234,7 +246,8 @@ TypeScript = class TypeScript {
   }
 
   static _transpile(fileContent, options) {
-    let compilerOptions = TypeScript.getCompilerOptions(options);
+    let compilerOptions = TypeScript.getCompilerOptions(
+      options.compilerOptions);
 
     let sourceFile = ts.createSourceFile(options.filePath,
       fileContent, compilerOptions.target);
@@ -256,8 +269,8 @@ TypeScript = class TypeScript {
     };
 
     let compilerHost = _.extend({}, defaultHost, customHost);
-    let program = ts.createProgram([options.filePath],
-      compilerOptions, compilerHost);
+    let fileNames = _.union([options.filePath], options.typings || []);
+    let program = ts.createProgram(fileNames, compilerOptions, compilerHost);
 
     let data, sourceMap;
     program.emit(sourceFile, (fileName, outputText, writeByteOrderMark) => {
