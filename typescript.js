@@ -114,7 +114,6 @@ TypeScript = class TypeScript {
 
     // Support decorators by default.
     compilerOptions.experimentalDecorators = true;
-    compilerOptions.emitDecoratorMetadata = true;
 
     // Declaration files are expected to
     // be generated separately.
@@ -144,10 +143,6 @@ TypeScript = class TypeScript {
     // API doesn't have paramless methods.
     compilerOptions.rootDir = null;
     compilerOptions.sourceRoot = null;
-
-    if (!compilerOptions.module) {
-      compilerOptions.module = ts.ModuleKind.System;
-    }
 
     return compilerOptions;
   }
