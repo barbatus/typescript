@@ -5,7 +5,8 @@ TypeScript API that is adapted to be used in Meteor packages.
 Install package `meteor add barbatus:typescript` and start using TypeScript right away, e.g.:
 ````js
     let result = TypeScript.transpile(fileContent, {
-        ...compilerOptions,
+        compilerOptions: {module: 'system'},
+        typings: ['typings/angular2.d.ts'], // typings that will be compiled together with the given content.
         filePath: some_path, // file path relative to the app root.
         moduleName: some_module // set module name if you want to use ES6 modules.
     })
@@ -21,15 +22,21 @@ access to other file properties can be defined in the **`options`**.
 **`options`** should have the following structure:
 ````js
 {
-    ...compilerOptions,
+    compilerOptions: Object,
+    typings?: Array<String>,
     filePath: file => file.getPathInPackage()
     moduleName: file => getModuleName(file)
 }
 ````
+`compilerOptions` TypeScript compiler options. See the next paragraph for detailed description.
+
+`typings` (optional) is expected be an array of declaration file paths. If provided, these files will be compiled together with .ts-files, thus,
+eliminating the need to use `/// <reference path='...' />` syntax.
+
 `filePath` field is expected to be a function that gets in a file object and return its file path.
 Field is **required**.
 
-`moduleName` field. If you want to use modules, you set the `module` field of the `compilerOptions` (e.g., `compilerOptions.module = ts.ModuleKind.System`) and define a `moduleName` function that gets in a file and retuns some module name.
+`moduleName` (optional) field. If you want to use modules, you set the `module` field of the `compilerOptions` (e.g., `compilerOptions.module = ts.ModuleKind.System`) and define a `moduleName` function that gets in a file and retuns its module name.
 
 **`fileReadyCallback`** — callback that is being executed each time file transpilation is completed.
 
