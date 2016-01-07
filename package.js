@@ -1,13 +1,13 @@
 Package.describe({
   name: 'barbatus:typescript',
-  version: '0.1.4_1',
+  version: '0.1.5',
   summary: 'TypeScript Package for Meteor',
   git: 'https://github.com/barbatus/angular2/packages/typescript',
   documentation: 'README.md'
 });
 
 Npm.depends({
-  'typescript': '1.6.2'
+  'typescript': '1.7.5'
 });
 
 var server = 'server';
