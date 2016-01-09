@@ -105,5 +105,5 @@ Diagnostics object has two convenient methods for logging out error details to t
 ````
 
 ### Example of Usage
-You can check out TS caching [compiler](https://github.com/barbatus/angular2/blob/master/packages/ts-compilers/compilers/ts_caching_compiler.js) where this package is used.
+You can check out TS [compilers](https://github.com/barbatus/ts-compilers) package, which is based on the current package.
 
