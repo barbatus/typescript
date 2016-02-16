@@ -28,4 +28,5 @@ Package.onTest(function(api) {
   api.use('barbatus:typescript');
 
   api.addFiles('runtime-tests.ts');
+  api.addFiles('runtime-tests.tsx');
 });
