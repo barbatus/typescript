@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "exculde": [
+    "node_modules"
+  ],
+  "filesGlob": [
+    "typings/*.ts"
+  ]
+}
