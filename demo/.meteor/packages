@@ -19,5 +19,5 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 
-barbatus:typescript@0.1.0-beta.2
+barbatus:typescript@0.2.0-beta.1
 modules
