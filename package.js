@@ -1,6 +1,6 @@
 Package.describe({
   name: 'barbatus:typescript',
-  version: '0.1.0-beta.1',
+  version: '0.1.0-beta.2',
   summary: 'TypeScript for Meteor',
   git: 'https://github.com/barbatus/typescript',
   documentation: 'README.md'
