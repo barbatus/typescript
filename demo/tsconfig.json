@@ -7,7 +7,7 @@
   "exculde": [
     "node_modules"
   ],
-  "filesGlob": [
-    "typings/*.ts"
+  "files": [
+    "typings/server.d.ts"
   ]
 }
