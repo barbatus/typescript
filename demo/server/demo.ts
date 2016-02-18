@@ -1,6 +1,8 @@
 'use strict';
 // HelloWorldServer with modules, to run: meteor run --release METEOR@1.3-modules-beta.7
 
+import {Injectable} from "angular2/core";
+
 function sayHello (param: number) {
   console.log(param);
 }

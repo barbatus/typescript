@@ -1,6 +1,10 @@
 'use strict';
 
-// HelloWorld with modules, to run: meteor run --release METEOR@1.3-modules-beta.7
+// HelloWorld with modules, to run:
+// npm install
+// meteor run --release METEOR@1.3-modules-beta.7
+
+import {Injectable} from "angular2/core";
 
 import {api} from 'lib';
 

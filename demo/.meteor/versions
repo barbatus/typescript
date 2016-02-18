@@ -3,8 +3,8 @@ autopublish@1.0.4
 autoupdate@1.2.5-modules.8
 babel-compiler@6.4.0-modules.8
 babel-runtime@0.1.5-modules.8
-barbatus:typescript@0.2.0-beta.2
-barbatus:typescript-compiler@0.5.0-beta.2
+barbatus:typescript@0.2.0-beta.4
+barbatus:typescript-compiler@0.5.0-beta.3
 base64@1.0.5-modules.8
 binary-heap@1.0.5-modules.8
 blaze@2.1.4-modules.8

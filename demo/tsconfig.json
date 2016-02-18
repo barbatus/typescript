@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
     "sourceMap": true,
-    "diagnostics": true
+    "moduleResolution": "node"
   },
-  "exculde": [
-    "node_modules"
-  ],
   "files": [
-    "typings/server.d.ts"
+    "typings/server.d.ts",
+    "server/demo.ts",
+    "client/demo.ts"
   ]
 }
