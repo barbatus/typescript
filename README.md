@@ -19,6 +19,7 @@ All together default TypeScript compiler options of this compiler looks like:
 ## Typings
 
 Recommended way to install typigns is to use [`typings`](https://github.com/typings/typings) tool.
+
 For example, to install Meteor declaration files, you'll need to run commands as follows:
 ````
 npm install typings -g
@@ -26,5 +27,5 @@ npm install typings -g
 typings install meteor --ambient
 ````
 
-Current compiler sticks to the Meteor isomorphic environment, which means it compiles files architercture-wise, or in other words,
-if you put declaration files, for example, in the server folder, they will be used for the server side code only.
+Current compiler sticks to the Meteor isomorphic environment, which means it compiles files architercture-wise.
+In other words, if you put declaration files, for example, in the server folder, they will be used for the server side code only.
