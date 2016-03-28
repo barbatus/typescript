@@ -4,7 +4,7 @@ This package adds TypeScript to Meteor projects.
 
 TypeScript is transpiled into ECMAScript 5 and CommonJS modules by default.
 
-Default TypeScript compiler options that current compiler has:
+All together default TypeScript compiler options of this compiler looks like:
 ````json
 {
   "module": "commonjs",
@@ -26,5 +26,5 @@ npm install typings -g
 typings install meteor --ambient
 ````
 
-Current compiler sticks to Meteor's isomorphic environment, which means it compiles files architercture-wise, or in other words,
-if you put declaration files, for example, in the server folder, they will be applied onto the server side code only.
+Current compiler sticks to the Meteor isomorphic environment, which means it compiles files architercture-wise, or in other words,
+if you put declaration files, for example, in the server folder, they will be used for the server side code only.
