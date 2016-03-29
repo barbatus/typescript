@@ -39,7 +39,7 @@ In other words, if you put declaration files, for example, in the server folder,
 This package uses (directly or indirectly) tree other packages, which are worth to mention:
 
 [typescript-compiler](https://github.com/barbatus/typescript-compiler) - exports a Meteor TypeScript compiler that implements Meteor compiler API. TypeScript compiler in its turn uses [meteor-typescript](https://github.com/barbatus/meteor-typescript) package’s API
-to compile TypeScript source code incrementally for each file change or changes.
+to compile TypeScript source code incrementally on file changes.
 
 [meteor-typescript](https://github.com/barbatus/meteor-typescript) - an NPM package that exports an incremental TypeScript build class.
 That class is designed to be used in the series of subsequent compilations of TypeScript source code. In that case, TypeScript Service API, which is used internally, allows to reuse compilation statistics and data between subsequent builds, thus, improving speed of the compilation.
