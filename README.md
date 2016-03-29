@@ -42,7 +42,7 @@ This package uses (directly or indirectly) tree other packages, which are worth 
 to compile TypeScript source code incrementally for each file change or changes.
 
 [meteor-typescript](https://github.com/barbatus/meteor-typescript) - an NPM package that exports an incremental TypeScript build class.
-That class is designed to be used in the series of subsequent compilations of TypeScript source code. In that case, TypeScript Service API, which is used internally, allows to reuse compilation statistics between subsequent builds, thus, improving speed of the compilation ultimately.
+That class is designed to be used in the series of subsequent compilations of TypeScript source code. In that case, TypeScript Service API, which is used internally, allows to reuse compilation statistics and data between subsequent builds, thus, improving speed of the compilation.
 
 [typescript-runtime](https://github.com/barbatus/typescript-runtime) - currently contains TypeScript helpers,
-which allows to configure behavior of the compiled TypeScript code for some use cases. One of the use cases is usage with the old browsers.
+which allows to configure behavior of some parts of the compiled TypeScript code for special use cases. One of the use cases is usage with the old browsers.
