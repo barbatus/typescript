@@ -3,7 +3,7 @@ Plugin.registerCompiler({
   filenames: ['tsconfig.json']
 }, function () {
   return new TypeScriptCompiler({
-    target: "ES5",
+    target: 'ES5',
     // We define own helpers.
     noEmitHelpers: true,
     jsx: 'react'
