@@ -18,6 +18,8 @@ All together default TypeScript compiler options of this compiler looks like:
 }
 ````
 
+> Please note, "default" means that you don't need to specify them in the tsconfig. Though, you may want to do that to fix your IDE's TypeScript plugin.
+
 ## Typings
 
 Recommended way to install typigns is to use [`typings`](https://github.com/typings/typings) tool.
@@ -33,6 +35,11 @@ Current compiler doesn't make difference between declaration and regular TypeScr
 Also it sticks to the Meteor isomorphic environment, which means it compiles files architercture-wise.
 
 In other words, if you put declaration files, for example, in the server folder, they will be used for the server side code only.
+
+## Example
+
+As an example, you could check out a simple ToDo app built with Angular2 and TypeScript,
+https://github.com/Urigo/angular2-meteor/tree/master/examples/todos-meteor-1.3
 
 ## Package Structure
 
