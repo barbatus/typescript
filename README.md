@@ -2,7 +2,7 @@
 
 Adds TypeScript compiler to Meteor projects.
 > Discussion about TypeScript compiler for Meteor happens here https://github.com/Urigo/angular2-meteor/issues/102.
-> This package might become the official TypeScript package, let's make it the best all together!
+> This package might become official, let's make it the best all together!
 
 TypeScript is transpiled into ECMAScript 5 and CommonJS modules by default.
 
