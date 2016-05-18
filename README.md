@@ -1,7 +1,7 @@
 ## TypeScript Compiler for Meteor
 
 Adds TypeScript compiler to Meteor projects.
-> Discussion about TypeScript compiler for Meteor happens here https://github.com/Urigo/angular2-meteor/issues/102.
+> Discussion about this TypeScript compiler happens here https://github.com/Urigo/angular2-meteor/issues/102.
 > This package might become official, let's make it the best all together!
 
 TypeScript is transpiled into ECMAScript 5 and CommonJS modules by default.
@@ -31,14 +31,14 @@ npm install typings -g
 typings install meteor --ambient
 ````
 
-Current compiler doesn't make difference between declaration and regular TypeScript files and processes them all.
-Also it sticks to the Meteor isomorphic environment, which means it compiles files architercture-wise.
+Current compiler doesn't make difference between declaration and regular TypeScript files, and processes them all.
+It sticks to the Meteor isomorphic environment compiling files architerture-wise.
 
 In other words, if you put declaration files, for example, in the server folder, they will be used for the server side code only.
 
 ## Example
 
-As an example, you could check out a simple ToDo app built with Angular2 and TypeScript,
+As an example, check out a simple TODO app built with Angular2 and TypeScript,
 https://github.com/Urigo/angular2-meteor/tree/master/examples/todos-meteor-1.3
 
 ## Package Structure
