@@ -1,12 +1,12 @@
 ## TypeScript Compiler for Meteor
 
-Adds TypeScript compiler to Meteor projects.
-> Discussion about this TypeScript compiler happens here https://github.com/Urigo/angular2-meteor/issues/102.
+Adds TypeScript compiler to Meteor apps.
+> Discussion about the TypeScript compiler for Meteor happens here https://github.com/Urigo/angular2-meteor/issues/102.
 > This package might become official, let's make it the best all together!
 
-TypeScript is transpiled into ECMAScript 5 and CommonJS modules by default.
+TypeScript files are compiled (or transpiled) into ECMAScript 5 and CommonJS modules by default.
 
-All together default TypeScript compiler options of this compiler looks like:
+Default compiler options as JSON:
 ````json
 {
   "module": "commonjs",
@@ -18,23 +18,37 @@ All together default TypeScript compiler options of this compiler looks like:
 }
 ````
 
-> Please note, "default" means that you don't need to specify them in the tsconfig. Though, you may want to do that to fix your IDE's TypeScript plugin.
+> "Default" means that these options are preset internally, so you don't need to specify them in the `tsconfig`. You may want though to add `tsconfig` to fix your IDE's TypeScript plugin.
 
 ## Typings
 
-Recommended way to install typigns is to use [`typings`](https://github.com/typings/typings) tool.
+There are three major types of typings you may encouter developing a Meteor app in TypeScript.
 
-For example, to install Meteor declaration files, you'll need to run commands as follows:
+One of them is typings that come from NPM packages. These typings are read and applied by the compiler automatically, so you don't need to worry about them at all. Angular 2's NPMs are a good example of such NPMs.
+
+Another type is typings for any third-party library you've decided to use, for example, Moment.js. Recommended way to search and install such typings is to use [`typings`](https://github.com/typings/typings) tool, which is de-facto a major tool to manage typings today.
+
+Last type is typings directly related to Meteor itself, to any of its associated NPMs, or to any Atmosphere package.
+This type of typings is supposed to be installed with the help of the `typings` tool as well, but with one nuance to mention.
+There is a special Github organization that is supposed to contain all Meteor-related typings in separate repos.
+Please check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor.
+
+### Installation
+
+To install Meteor declaration files, you'll need to run commands as follows:
 ````
 npm install typings -g
 
-typings install meteor --ambient
+typings install registry:env/meteor --ambient
 ````
 
-Current compiler doesn't make difference between declaration and regular TypeScript files, and processes them all.
-It sticks to the Meteor isomorphic environment compiling files architerture-wise.
+For more information, please read README at https://github.com/meteor-typings/meteor.
 
-In other words, if you put declaration files, for example, in the server folder, they will be used for the server side code only.
+### Typings Processing
+
+This package's TypeScript compiler doesn't make difference between declaration and regular TypeScript file processesing them all together. It, though, recognizes architectures of the files it processes, which means if you place a declaration file in the server folder, its typings will be read and applied for the server architecture only.
+
+You'll find that `typings` folder contains two folders, `main` and `browser`, which corresponds to the typings structure supported by the `typings`. TypeScript compiler will use typings from `main` for the server side only and accordingly - from `browser` for the client side.
 
 ## Example
 
