@@ -24,18 +24,18 @@ Default compiler options as JSON:
 
 There are three major types of typings you may encouter developing a Meteor app in TypeScript.
 
-One of them is typings that come from NPM packages. These typings are read and applied by the compiler automatically, so you don't need to worry about them at all. Angular 2's NPMs are a good example of such NPMs.
+One of them is typings that come from NPM packages. These typings are read and applied by the compiler automatically, so you don't need to worry about them at all. Angular 2's NPM is a good example of such NPMs.
 
 Another type is typings for any third-party library you've decided to use, for example, Moment.js. Recommended way to search and install such typings is to use [`typings`](https://github.com/typings/typings) tool, which is de-facto a major tool to manage typings today.
 
 Last type is typings directly related to Meteor itself, to any of its associated NPMs, or to any Atmosphere package.
 This type of typings is supposed to be installed with the help of the `typings` tool as well, but with one nuance to mention.
-There is a special Github organization that is supposed to contain all Meteor-related typings in separate repos.
-Please check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor.
+There is a special Github organization supposed to contain all Meteor-related typings in separate repos.
+Please, check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor.
 
 ### Installation
 
-To install Meteor declaration files, you'll need to run commands as follows:
+To install Meteor declaration files, you'll need to run in the terminal as follows:
 ````
 npm install typings -g
 
@@ -48,7 +48,7 @@ For more information, please read README at https://github.com/meteor-typings/me
 
 This package's TypeScript compiler doesn't make difference between declaration and regular TypeScript file processesing them all together. It, though, recognizes architectures of the files it processes, which means if you place a declaration file in the server folder, its typings will be read and applied for the server architecture only.
 
-You'll find that `typings` folder contains two folders, `main` and `browser`, which corresponds to the typings structure supported by the `typings`. TypeScript compiler will use typings from `main` for the server side only and accordingly - from `browser` for the client side.
+You'll find that `typings` folder contains two subfolders: `main` and `browser`. It corresponds to the typings structure supported by the `typings`. TypeScript compiler will use typings from `main` for the server side only, and accordingly - from `browser` for the client side.
 
 ## Example
 
