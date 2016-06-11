@@ -57,7 +57,7 @@ https://github.com/Urigo/angular2-meteor/tree/master/examples/todos-meteor-1.3
 
 ## Package Structure
 
-This package uses (directly or indirectly) tree other packages, which are worth to mention:
+This package uses (directly or indirectly) three other packages, which are worth to mention:
 
 [typescript-compiler](https://github.com/barbatus/typescript-compiler) - exports a Meteor TypeScript compiler that implements Meteor compiler API. TypeScript compiler in its turn uses [meteor-typescript](https://github.com/barbatus/meteor-typescript) package’s API
 to compile TypeScript source code incrementally on file changes.
