@@ -1,9 +1,5 @@
 ## TypeScript Compiler for Meteor
 
-Adds TypeScript compiler to Meteor apps.
-> Discussion about the TypeScript compiler for Meteor happens here https://github.com/Urigo/angular2-meteor/issues/102.
-> This package might become official, let's make it the best all together!
-
 TypeScript files are compiled (or transpiled) into ECMAScript 5 and CommonJS modules by default.
 
 Default compiler options as JSON:
@@ -22,16 +18,12 @@ Default compiler options as JSON:
 
 ## Typings
 
-There are three major types of typings you may encouter developing a Meteor app in TypeScript.
-
-One of them is typings that come from NPM packages. These typings are read and applied by the compiler automatically, so you don't need to worry about them at all. Angular 2's NPM is a good example of such NPMs.
-
-Another type is typings for any third-party library you've decided to use, for example, Moment.js. Recommended way to search and install such typings is to use [`typings`](https://github.com/typings/typings) tool, which is de-facto a major tool to manage typings today.
-
-Last type is typings directly related to Meteor itself, to any of its associated NPMs, or to any Atmosphere package.
-This type of typings is supposed to be installed with the help of the `typings` tool as well, but with one nuance to mention.
-There is a special Github organization supposed to contain all Meteor-related typings in separate repos.
-Please, check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor.
+There are three major types of typings you may encouter developing a Meteor app in TypeScript:
+- Typings from NPM packages. These typings are read and applied by the compiler automatically, so you don't need to worry about them at
+  all. Angular 2's NPM is a good example of such NPMs.
+- Typings for any third-party library that's not installed as NPM, for example, jQuery. Recommended way to search and install such typings is to use [`typings`](https://github.com/typings/typings) tool, which is de-facto a major tool to manage typings today.
+- Typings directly related to Meteor itself (which might be any of associated NPMs or a Atmosphere package).
+  This type of typings is supposed to be installed with the help of the `typings` tool as well, but not all of them are available in the global registry. So for more information on how to search and install them, please, check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor.
 
 ### Installation
 
