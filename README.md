@@ -23,7 +23,8 @@ There are three major types of typings you may encouter developing a Meteor app 
   all. Angular 2's NPM is a good example of such NPMs.
 - Typings for any third-party library that's not installed as NPM, for example, jQuery. Recommended way to search and install such typings is to use [`typings`](https://github.com/typings/typings) tool, which is de-facto a major tool to manage typings today.
 - Typings directly related to Meteor itself (which might be any of associated NPMs or a Atmosphere package).
-  This type of typings is supposed to be installed with the help of the `typings` tool as well, but not all of them are available in the global registry. So for more information on how to search and install them, please, check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor.
+  This type of typings is supposed to be installed with the help of the `typings` tool as well, but not all of them are available in the global registry. So for more information on how to search and install them, please, check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor;
+- Custom typings.
 
 ### Installation
 
@@ -38,10 +39,9 @@ For more information, please read README at https://github.com/meteor-typings/me
 
 ### Typings Processing
 
-This package compilers declaration and regular TypeScript files all together meaning that each file is processed according to its architectures. So placing a declaration file in the server folder, make it counted only for the server.
+This package compilers declaration and regular TypeScript files all together meaning that each file is processed according to its architectures. So placing a declaration file in the server folder, for example, make it counted only for the server.
 
-Since each NPM package can contain parts as for the client (browser) as well as for the server (main), this package too recognizes two subfolders, `main` and `browser`, in the `typings` folder to follow that structure. So files from `main` will be compiled for the server,
-and from `browser` - for the client accordingly.
+Since each NPM package can contain parts as for the client (browser) as well as for the server (main), this package recognizes two subfolders, `main` and `browser`, in the `typings` folder to follow that structure. So files from the `main` will be compiled for the server, and from the `browser` - for the client accordingly.
 
 In order to install typings resources aligned with that structure, you'll need to
 add the following resolution to the `typings.json`:
