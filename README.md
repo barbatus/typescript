@@ -14,7 +14,7 @@ Default compiler options as JSON:
 }
 ````
 
-> "Default" means that these options are preset internally, so you don't need to specify them in the `tsconfig`. You may want though to add `tsconfig` to fix your IDE's TypeScript plugin.
+> Worth mentioning that these options are preset internally, which means `tsconfig.json` is not required. At the same time, you'll likely need it for your IDE.
 
 ## Typings
 
@@ -38,9 +38,20 @@ For more information, please read README at https://github.com/meteor-typings/me
 
 ### Typings Processing
 
-This package's TypeScript compiler doesn't make difference between declaration and regular TypeScript file processesing them all together. It, though, recognizes architectures of the files it processes, which means if you place a declaration file in the server folder, its typings will be read and applied for the server architecture only.
+This package compilers declaration and regular TypeScript files all together meaning that each file is processed according to its architectures. So placing a declaration file in the server folder, make it counted only for the server.
 
-You'll find that `typings` folder contains two subfolders: `main` and `browser`. It corresponds to the typings structure supported by the `typings`. TypeScript compiler will use typings from `main` for the server side only, and accordingly - from `browser` for the client side.
+Since each NPM package can contain parts as for the client (browser) as well as for the server (main), this package too recognizes two subfolders, `main` and `browser`, in the `typings` folder to follow that structure. So files from `main` will be compiled for the server,
+and from `browser` - for the client accordingly.
+
+In order to install typings resources aligned with that structure, you'll need to
+add the following resolution to the `typings.json`:
+
+```
+"resolution": {
+    "main": "typings/main",
+    "browser": "typings/browser"
+  }
+```
 
 ## Example
 
