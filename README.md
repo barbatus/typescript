@@ -1,6 +1,8 @@
 ## TypeScript Compiler for Meteor
 
-TypeScript files are compiled (or transpiled) into ECMAScript 5 and CommonJS modules by default.
+TypeScript files are compiled into ES5 and CommonJS modules by default.
+
+> Based on TypeScript@2.0.0 since 0.4.0
 
 Default compiler options as JSON:
 ````json
@@ -13,8 +15,18 @@ Default compiler options as JSON:
   "sourceMap": true
 }
 ````
+## ES6
 
-> Worth mentioning that these options are preset internally, which means `tsconfig.json` is not required. At the same time, you'll likely need it for your IDE.
+Since Meteor 1.4, which is based on Node.js v4.0, it's possible to use ES6 on the server.
+If you want to compile into ES6 on the server, put a `tsconfig.json` in the server folder
+with a content as follows:
+```
+{
+  "compilerOptions": {
+    "target": "ES6"
+  }
+}
+```
 
 ## Typings
 
