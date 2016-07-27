@@ -44,7 +44,7 @@ To install Meteor declaration files, you'll need to run in the terminal as follo
 ````
 npm install typings -g
 
-typings install registry:env/meteor --ambient
+typings install env~meteor --global
 ````
 
 For more information, please read README at https://github.com/meteor-typings/meteor.
