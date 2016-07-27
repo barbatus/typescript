@@ -19,7 +19,7 @@ Default compiler options as JSON:
 
 Since Meteor 1.4, which is based on Node.js v4.0, it's possible to use ES6 on the server.
 
-If you want to compile into ES6 on the server, put a `tsconfig.json` into the server folder::
+If you want to compile into ES6 on the server, put a `tsconfig.json` into the server folder:
 ```json
 {
   "compilerOptions": {
@@ -58,11 +58,11 @@ Since each NPM package can contain parts as for the client (browser) as well as 
 In order to install typings resources aligned with that structure, you'll need to
 add the following resolution to the `typings.json`:
 
-```
+```json
 "resolution": {
-    "main": "typings/main",
-    "browser": "typings/browser"
-  }
+  "main": "typings/main",
+  "browser": "typings/browser"
+}
 ```
 
 Please note that any change to a global declaration file will cause re-compilation of the whole project.
