@@ -51,7 +51,7 @@ For more information, please read README at https://github.com/meteor-typings/me
 
 ### Typings Processing
 
-This package compilers declaration and regular TypeScript files all together which means that each declaration file is processed according to the architecture it's targeted for. So placing a declaration file in the server folder, for example, make it counted only for the server.
+This package compilers declaration and regular TypeScript files all together which means that each declaration file is processed according to the architecture it's targeted for. So placing a declaration file in the server folder, for example, make it counted only for the server code.
 
 Since each NPM package can contain parts as for the client (browser) as well as for the server (main), this package recognizes two subfolders, `main` and `browser`, in the `typings` folder to follow that structure. So files from the `main` will be compiled for the server, and from the `browser` - for the client accordingly.
 
