@@ -39,9 +39,8 @@ There are several types of typings you may encouter developing a Meteor app with
       Since 2.0.0 TypeScript supports referencing NPM packages directly in ts-files as was possible only with individual files before.
       For example, `/// <reference types="@types/jquery" />` reference will apply jQuery typings from `@types/jquery` NPM package if it
       exists. `@types` is a special NPM scope supported by the TypeScript authors which now
-      contains copies of the typings from [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
-      repo.
-      It's possible though to install any NPM package with typings using `/// <reference types="" />`.
+      contains copies of typings from [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
+      repo. It's possible though to install any NPM package with typings like that.
 * Typings installed and managed by [`typings`](https://github.com/typings/typings) utility.
    It's de-facto a major tool to manage typings today. Besides features to
    search and install typings from DefinitelyTyped, it has own typings repository supported by the community.
