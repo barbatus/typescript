@@ -30,7 +30,7 @@ If you want to compile into ES6 on the server, put a `tsconfig.json` into the se
 
 ## Typings
 
-There are several types of typings you may encouter developing a Meteor app with TypeScript:
+There are several sources of typings you'll need to know about when developing a Meteor app with TypeScript:
 * Typings from NPM packages:
    * More and more NPM packages come today with typings along with the source code files themselves.
       TypeScript reads and applies them automatically, so users are free of burden supporting them
