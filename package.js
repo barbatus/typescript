@@ -1,6 +1,6 @@
 Package.describe({
   name: 'barbatus:typescript',
-  version: '0.4.0',
+  version: '0.5.3',
   summary: 'TypeScript for Meteor',
   git: 'https://github.com/barbatus/typescript',
   documentation: 'README.md'
@@ -13,18 +13,18 @@ Package.registerBuildPlugin({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.3.1');
+  api.versionsFrom('1.4.1');
 
   api.use('isobuild:compiler-plugin@1.0.0');
-  api.use('barbatus:typescript-compiler@0.7.0');
+  api.use('barbatus:typescript-compiler@0.8.5');
 
-  api.imply('modules@0.6.4');
+  api.imply('modules@0.7.6_1');
 
-  api.imply('barbatus:typescript-runtime@0.1.2');
+  api.imply('barbatus:typescript-runtime@1.0.0');
 });
 
 Package.onTest(function(api) {
-  api.use('tinytest');
+  api.use('tinytest@1.0.12');
   api.use('barbatus:typescript');
 
   api.addFiles('tests/runtime-tests.ts', 'client');

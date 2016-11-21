@@ -2,7 +2,7 @@
 
 TypeScript files are compiled into ES5 and CommonJS modules by default.
 
-> Based on TypeScript@2.0.0 since 0.4.0
+> Based on TypeScript@2.0.10
 
 Default compiler options as JSON:
 ````json
@@ -30,12 +30,30 @@ If you want to compile into ES6 on the server, put a `tsconfig.json` into the se
 
 ## Typings
 
-There are three major types of typings you may encouter developing a Meteor app in TypeScript:
-- Typings from NPM packages. These typings are read and applied by the compiler automatically, so you don't need to worry about them at
-  all. Angular 2's NPM is a good example of such NPMs;
-- Typings for any third-party library that's not installed as NPM, for example, jQuery. Recommended way to search and install such typings is to use [`typings`](https://github.com/typings/typings) tool, which is de-facto a major tool to manage typings today.
-- Typings directly related to Meteor itself (which might be any of associated NPMs or a Atmosphere package);
-  This type of typings is supposed to be installed with the help of the `typings` tool as well, but not all of them are available in the global registry. So for more information on how to search and install them, please, check out https://github.com/meteor-typings and https://github.com/meteor-typings/meteor;
+There are several types of typings you may encouter developing a Meteor app with TypeScript:
+ - Typings from NPM packages:
+   There are two subtypes here:
+   a. More and more NPM packages come today with typings along with the source code files themselves.
+      TypeScript reads and applies them automatically, so users are free of burden supporting them
+      at all in this case. Angular 2 NPMs are a good example of them.
+   b. Special NPM packages that contain only typings.
+      Since 2.0.0 TypeScript supports referencing NPM packages directly in ts-files as was
+      possible only with individual files before. For example, 
+      `/// <reference types="@types/jquery" />` construction will apply jQuery typings
+      from `@types/jquery` NPM package if it exists.
+      `@types` is a special NPM scope supported by the TypeScript authors that is supposed
+      to contain at least all copies of typings available in te [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repo.
+      It's possible though to install any NPM package with typings using `/// <reference types=`.
+- Typings installed and managed by [`typings`](https://github.com/typings/typings) utility.
+  It's de-facto a major tool to manage typings today. Besides features to
+  search and install easily typigns from DefinitelyTyped, it has own typings repository supported by the community.
+  So makes sense to give it at a try, if you haven't found typings in DefinitelyTyped.
+  It can also install typings even from GitHub repos and locally folders.
+- Typings related to Meteor itself (usually it means various Atmosphere packages);
+  You can find most typings available for Meteor [here](https://github.com/meteor-typings).
+  Some of them are already published as NPM packages, which means can be installed 
+  as described above. If not, you can always install them with help of `typings` utility.
+  For more info, please read [here](https://github.com/meteor-typings/meteor).
 - Custom typings.
 
 ### Installation
@@ -47,26 +65,31 @@ npm install typings -g
 typings install env~meteor --global
 ````
 
+Or install `meteor-typings` NPM and add
+```ts
+/// <reference types="meteor-typings" />
+```
+in the main ts-file (that runs first).
+
 For more information, please read README at https://github.com/meteor-typings/meteor.
 
 ### Typings Processing
 
-This package compilers declaration and regular TypeScript files all together meaning that each file is processed according to its architecture. So placing a declaration file in the server folder, for example, make it counted only for the server.
+Typings files are processed in the same way as regular ts-files. 
+It means particularly that placing a declaration file in the server folder, for example, will apply it to the server ts-files only.
 
-Since each NPM package can contain parts as for the client (browser) as well as for the server (main), this package recognizes two subfolders, `main` and `browser`, in the `typings` folder to follow that structure. So files from the `main` will be compiled for the server, and from the `browser` - for the client accordingly.
+Besides that, this package recognizes two subfolder of the `typings` folder:
+`typigns/main` and `typings/browser`. Files from the former will be used for the server
+code, and from the latter - for the browser code accordingly.
+This is especially useful if you use `typings` utility to manage typings,
+which supports typings separation for the client and server code
+(but only for packages from the own repo).
 
-In order to install typings resources aligned with that structure, you'll need to
-add the following resolution to the `typings.json`:
+> Please note that any change to global typings will cause re-compilation of the whole project,
+> including the case when types references added or removed from ts-files.
 
-```json
-"resolution": {
-  "main": "typings/main",
-  "browser": "typings/browser"
-}
-```
-
-Please note that any change to a global declaration file will cause re-compilation of the whole project.
-If you change some custom declaration file often, it makes sence to include it locally where used and exlude in the config:
+If you change some custom declaration file often, it makes sence to reference it locally in ts-files where used
+while exluding in the config:
 ```ts
  /// <reference path="typings/foo.d.ts" />
 ```
