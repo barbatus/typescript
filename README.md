@@ -44,8 +44,8 @@ There are several sources of typings you'll need to know about when developing a
 * Typings installed and managed by [`typings`](https://github.com/typings/typings) utility.
    It's de-facto a major tool to manage typings today. Besides features to
    search and install typings from DefinitelyTyped, it has own typings repository supported by the community.
-   So makes sense to give it at a try, if you haven't found typings in DefinitelyTyped.
-   It can also install typings even from GitHub repos and locally folders.
+   So makes sense to give it at a try, if you want to search typings easily as well as install them not only from
+   DefinitelyTyped but from GitHub repos and other sources.
 * Typings related to Meteor itself (usually it means various Atmosphere packages).
    You can find most typings available for Meteor [here](https://github.com/meteor-typings).
    Some of them are already published as NPM packages, which means they can be installed 
