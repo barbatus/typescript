@@ -100,7 +100,7 @@ but exlude it globally, i.e., in the config:
 ## Example
 
 As an example, check out a simple TODO app built with Angular2 and TypeScript,
-https://github.com/Urigo/angular2-meteor/tree/master/examples/todos-meteor-1.3
+https://github.com/Urigo/angular-meteor/tree/master/examples/todos-meteor-1.3
 
 ## Package Structure
 
