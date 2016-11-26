@@ -32,26 +32,26 @@ If you want to compile into ES6 on the server, put a `tsconfig.json` into the se
 
 There are several sources of typings you'll need to know about when developing a Meteor app with TypeScript:
 * Typings from NPM packages:
-  * More and more NPM packages come today with typings along with the source code files themselves.
-    TypeScript reads and applies them automatically, so users are free of burden supporting them
-    at all in this case. Angular 2 NPMs are a good example of them.
+  * More and more NPM packages come today with typings along with the source code files.
+    TypeScript reads and applies them automatically, so users are free of worry about typings
+    at all in this case. TypeScript reads `typings` field in the package.json to find out main d.ts-file.
   * Special NPM packages that contain only typings.
-    Since 2.0.0 TypeScript supports referencing NPM packages directly in ts-files as was possible only with individual files before.
+    Since 2.0.0 TypeScript supports referencing NPM packages directly in ts-files.
     For example, `/// <reference types="@types/jquery" />` reference will apply jQuery typings from `@types/jquery` NPM package if it
-    exists. `@types` is a special NPM scope supported by the TypeScript authors which now
-    contains copies of typings from [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
+    exists. `@types` is a special NPM scope supported by the TypeScript authors which contains typings from
+    [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) in NPM packages
     repo. It's possible though to install any NPM package with typings like that.
 * Typings installed and managed by [`typings`](https://github.com/typings/typings) utility.
    It's de-facto a major tool to manage typings today. Besides features to
    search and install typings from DefinitelyTyped, it has own typings repository supported by the community.
-   So makes sense to give it at a try, if you want to search typings easily as well as install them not only from
+   So makes sense to give it at a try if you want to search typings easily as well as install them not only from
    DefinitelyTyped but from GitHub repos and other sources.
-* Typings related to Meteor itself (usually it means various Atmosphere packages).
+* Typings related to Meteor itself (NPMs and Atmosphere packages).
    You can find most typings available for Meteor [here](https://github.com/meteor-typings).
    Some of them are already published as NPM packages, which means they can be installed 
    as described above. If not, you can always install them with help of `typings` utility.
    For more info, please read [here](https://github.com/meteor-typings/meteor).
-* Custom typings.
+* Custom typings: user d.ts-files that contain custom declarations.
 
 ### Installation
 
