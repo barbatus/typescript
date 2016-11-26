@@ -73,8 +73,8 @@ For more information, please read README at https://github.com/meteor-typings/me
 ### Typings Processing
 
 Typings files are processed in the same way as regular ts-files. 
-It means that if you place a declaration file into, for example, server folder,
-it will be used only for the server ts-files only.
+It means that if you place a declaration file into, for example, server folder
+it will be used only for the server code only.
 
 Besides that, this package recognizes two subfolder of the `typings` folder:
 `typigns/main` and `typings/browser`. Files from the former will be used for the server
