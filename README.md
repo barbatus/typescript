@@ -75,6 +75,7 @@ For more information, please read README at https://github.com/meteor-typings/me
 Typings files are processed in the same way as regular ts-files. 
 It means that if you place a declaration file into, for example, server folder
 it will be used only for the server code only.
+
 Besides that, this package recognizes two subfolder of the `typings` folder:
 `typigns/main` and `typings/browser`. Files from the former will be used for the server
 code, and from the latter -- for the browser code accordingly.
@@ -82,7 +83,7 @@ This is especially useful if you use `typings` utility to manage typings,
 which supports typings separation for the client and server code
 (but only for packages from the own repo).
 
-> Please note that any change to global typings will cause diagnostics re-evaluation of the whole project,
+> Please note that any change to global typings will cause diagnostics re-evaluation (though it's less heavy than re-compilation) of the whole project,
 > including the case when types references (see above) added or removed from ts-files.
 
 If you change some custom declaration file often, it makes sence to reference it locally in ts-files where used
