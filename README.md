@@ -2,7 +2,7 @@
 
 TypeScript files are compiled into ES5 and CommonJS modules by default.
 
-> Based on TypeScript@2.0.10
+> Based on TypeScript@2.1.1
 
 Default compiler options as JSON:
 ````json
@@ -26,6 +26,19 @@ If you want to compile into ES6 on the server, put a `tsconfig.json` into the se
     "target": "ES6"
   }
 }
+```
+
+## Paths mapping
+
+TypeScript paths mapping is supported since `0.6.0`, though,
+with some limitations. It works only for local files and for `module: commonjs`.
+So now you can refer to Meteor absolute paths like `/imports/client/foo`
+as `imports/client/foo` if you add to the `config.json` as follows:
+```
+  "baseUrl": ".",
+  "paths": {
+    "*": ["*"]
+  }
 ```
 
 ## Typings
