@@ -43,28 +43,28 @@ as `imports/client/foo` if you add to the `config.json` as follows:
 
 ## Typings
 
-There are several types of typings you may encouter developing a Meteor app with TypeScript:
+There are several sources of typings you'll need to know about when developing a Meteor app with TypeScript:
 * Typings from NPM packages:
-   * More and more NPM packages come today with typings along with the source code files themselves.
-      TypeScript reads and applies them automatically, so users are free of burden supporting them
-      at all in this case. Angular 2 NPMs are a good example of them.
-   * Special NPM packages that contain only typings.
-      Since 2.0.0 TypeScript supports referencing NPM packages directly in ts-files as was possible only with individual files before.
-      For example, `/// <reference types="@types/jquery" />` reference will apply jQuery typings from `@types/jquery` NPM package if it
-      exists. `@types` is a special NPM scope supported by the TypeScript authors which now
-      contains copies of typings from [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
-      repo. It's possible though to install any NPM package with typings like that.
+  * More and more NPM packages come today with typings along with the source code files.
+    TypeScript finds main declaration file using `typings` field in the package.json and applies it automatically,
+    so users are free of worry about typings at all in this case.
+  * Special NPM packages that contain only typings.
+    Since 2.0.0 TypeScript supports referencing NPM packages directly in ts-files.
+    For example, `/// <reference types="@types/jquery" />` reference will apply jQuery typings from `@types/jquery` NPM package if it
+    exists. `@types` is a special NPM scope supported by the TypeScript authors which contains typings from
+    [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) in NPM packages.
+    It's possible though to install any NPM package with typings using `reference`.
 * Typings installed and managed by [`typings`](https://github.com/typings/typings) utility.
    It's de-facto a major tool to manage typings today. Besides features to
    search and install typings from DefinitelyTyped, it has own typings repository supported by the community.
-   So makes sense to give it at a try, if you haven't found typings in DefinitelyTyped.
-   It can also install typings even from GitHub repos and locally folders.
-* Typings related to Meteor itself (usually it means various Atmosphere packages).
+   So makes sense to give it at a try if you want to search typings easily as well as install them not only from
+   DefinitelyTyped but from GitHub repos and other sources.
+* Typings related to Meteor itself (NPMs and Atmosphere packages).
    You can find most typings available for Meteor [here](https://github.com/meteor-typings).
    Some of them are already published as NPM packages, which means they can be installed 
    as described above. If not, you can always install them with help of `typings` utility.
    For more info, please read [here](https://github.com/meteor-typings/meteor).
-* Custom typings.
+* Custom typings: user d.ts-files that contain custom declarations.
 
 ### Installation
 
@@ -86,8 +86,8 @@ For more information, please read README at https://github.com/meteor-typings/me
 ### Typings Processing
 
 Typings files are processed in the same way as regular ts-files. 
-Particularly, it means that placing a declaration file in the server folder,
-for example, will apply it to the server ts-files only.
+It means that if you place a declaration file into, for example, server folder
+it will be used only for the server code only.
 
 Besides that, this package recognizes two subfolder of the `typings` folder:
 `typigns/main` and `typings/browser`. Files from the former will be used for the server
@@ -96,11 +96,11 @@ This is especially useful if you use `typings` utility to manage typings,
 which supports typings separation for the client and server code
 (but only for packages from the own repo).
 
-> Please note that any change to global typings will cause re-compilation of the whole project,
+> Please note that any change to global typings will cause diagnostics re-evaluation (though it's less heavy than re-compilation) of the whole project,
 > including the case when types references (see above) added or removed from ts-files.
 
 If you change some custom declaration file often, it makes sence to reference it locally in ts-files where used
-but exlude it globally, i.e., in the config:
+but exlude it globally in the config:
 ```ts
  /// <reference path="typings/foo.d.ts" />
 ```
@@ -113,7 +113,7 @@ but exlude it globally, i.e., in the config:
 ## Example
 
 As an example, check out a simple TODO app built with Angular2 and TypeScript,
-https://github.com/Urigo/angular2-meteor/tree/master/examples/todos-meteor-1.3
+https://github.com/Urigo/angular-meteor/tree/master/examples/todos-meteor-1.3
 
 ## Package Structure
 
