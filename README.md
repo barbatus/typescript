@@ -28,13 +28,13 @@ If you want to compile into ES6 on the server, put a `tsconfig.json` into the se
 }
 ```
 
-## Paths mapping
+## Path mappings
 
 TypeScript paths mapping is supported since `0.6.0`, though,
 with some limitations. It works only for local files and for `module: commonjs`.
 
-You can refer to Meteor absolute paths like `/imports/client/foo`
-as `imports/client/foo` if you add to the `config.json` as follows:
+You can now use paths like `imports/client/foo` instead of Meteor absolute
+paths like `/imports/client/foo` if you add to the `config.json` as follows:
 ```json
   "baseUrl": ".",
   "paths": {
