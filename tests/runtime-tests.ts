@@ -1,13 +1,13 @@
-// Tinytest.addAsync('typescript - runtime - async', (test, onComplete) => {
-//   {
-//     async function service() { return await Promise.resolve(1); }
+Tinytest.addAsync('typescript - runtime - async', (test, onComplete) => {
+  {
+    async function service() { return await Promise.resolve(1); }
 
-//     service().then(result => {
-//       test.equal(result, 1);
-//       onComplete();
-//     });
-//   }
-// });
+    service().then(result => {
+      test.equal(result, 1);
+      onComplete();
+    });
+  }
+});
 
 Tinytest.add('typescript - runtime - decorators', (test) => {
   {
