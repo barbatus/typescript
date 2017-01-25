@@ -49,9 +49,9 @@ There are several sources of typings you'll need to know about when developing a
   * More and more NPM packages come today with typings along with the source code files.
     TypeScript finds main declaration file using `typings` field in the package.json and applies it automatically,
     so users are free of worry about typings at all in this case.
-  * Special NPM packages with only typings.
+  * Special NPM packages that contain only typings.
     Since 2.1.x there is a way to add NPMs with typings to the project globally.
-    Use `types` option of `tsconfig.json` and add a list of NPMs you want there (See below).
+    Use `types` option of `tsconfig.json` and set a list of NPMs you want to use there (see Installation below).
 * Typings installed and managed by [`typings`](https://github.com/typings/typings) utility.
    It's de-facto a major tool to manage typings today. Besides features to
    search and install typings from DefinitelyTyped, it has own typings repository supported by the community.
@@ -77,11 +77,14 @@ change `tsconfig.json` as follows:
 ```
 
 This way you can install typings globally from various NPMs.
-For example, there is a special NPM scope called `@types` supported by the TypeScript authors,
+For example, there is a special NPM scope called `@types` supported by the TypeScript authors
 which currently contains NPM repos with all typings from
 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
-For more information, please read README at https://github.com/meteor-typings/meteor.
+Rule of thumb: use `typings` utility to seach typings in DefinitelyTyped repo and install them as NPMs from
+`@types` scope.
+
+For more information about Meteor typings, please read README at https://github.com/meteor-typings/meteor.
 
 ### Typings Processing
 
@@ -123,8 +126,8 @@ which allow to configure behavior of some parts of the compiled TypeScript code 
 
 ## Credits
 
-Thanks @urigo for his constant support and resources to continue 
-development of this project.
+Thanks @urigo (Uri) for his constant support and resources to continue 
+development of this project. Without him this project won't be possible.
 
 ## License
 MIT
