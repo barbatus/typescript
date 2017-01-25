@@ -96,7 +96,7 @@ it will be used only for the server code only.
 > including the case when types references (see above) added or removed from ts-files.
 
 If you change some custom declaration file often, it makes sence to reference it locally in ts-files where used
-but exlude it globally in the config:
+but exclude it globally in the config:
 ```ts
  /// <reference path="typings/foo.d.ts" />
 ```
@@ -127,7 +127,7 @@ which allow to configure behavior of some parts of the compiled TypeScript code 
 ## Credits
 
 Thanks @urigo (Uri) for his constant support and resources to continue 
-development of this project. Without him this project won't be possible.
+development of this project. Without him this project wouldn't be possible.
 
 ## License
 MIT
