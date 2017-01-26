@@ -59,7 +59,7 @@ There are several sources of typings you'll need to know about when developing a
    DefinitelyTyped but from GitHub repos and other sources.
 * Typings related to Meteor itself (NPMs and Atmosphere packages).
    You can find most typings available for Meteor [here](https://github.com/meteor-typings).
-   Some of them are already published as NPM packages, which means they can be installed 
+   Some of them are already published as NPM packages, which means they can be installed and used
    as described above. If not, you can always install them with help of `typings` utility.
    For more info, please read [here](https://github.com/meteor-typings/meteor).
 * Custom typings: user d.ts-files that contain custom declarations.
@@ -71,15 +71,15 @@ change `tsconfig.json` as follows:
 ```json
 {
   "compilerOptions": {
-    "@types": ["meteor-typings"]
+    "types": ["meteor-typings"]
   }
 }
 ```
 
 This way you can install typings globally from various NPMs.
-For example, there is a special NPM scope called `@types` supported by the TypeScript authors
+For example, there is a special NPM scope called `@types` supported by the TypeScript authors,
 which currently contains NPM repos with all typings from
-[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repo.
 
 Rule of thumb: use `typings` utility to seach typings in DefinitelyTyped repo and install them as NPMs from
 `@types` scope.
