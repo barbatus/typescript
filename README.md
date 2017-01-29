@@ -93,10 +93,10 @@ It means that if you place a declaration file into, for example, server folder
 it will be used only for the server code only.
 
 > Please note that any change to global typings will cause diagnostics re-evaluation (though it's less heavy than re-compilation) of the whole project,
-> including the case when types references (see above) added or removed from ts-files.
+> including the case when references (see below) added or removed from ts-files.
 
-If you change some custom declaration file often, it makes sence to reference it locally in ts-files where used
-but exclude it globally in the config:
+If you change some custom declaration file often, it makes sence to reference it in some main ts-file
+but exclude in the config:
 ```ts
  /// <reference path="typings/foo.d.ts" />
 ```
