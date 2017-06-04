@@ -2,7 +2,7 @@
 
 TypeScript files are compiled into ES5 and CommonJS modules by default.
 
-> Based on TypeScript@2.2.0
+> Based on TypeScript@2.3.2
 
 Default compiler options as JSON:
 ````json
@@ -127,7 +127,7 @@ which allow to configure behavior of some parts of the compiled TypeScript code 
 ## Credits
 
 Thanks @urigo (Uri) for his constant support and resources to continue 
-development of this project. Without him this project wouldn't be possible.
+development of this project.
 
 ## License
 MIT
