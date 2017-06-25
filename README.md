@@ -17,7 +17,8 @@ Default compiler options as JSON:
 ````
 ## ES6
 
-Since Meteor 1.4, which is based on Node.js v4.0, it's possible to use ES6 on the server.
+Since Meteor 1.4, which is based on Node.js v4.x, it's possible to use ES6 on the server
+(limited to the subset of ES6 supported by v4.x).
 
 If you want to compile into ES6 on the server, put a `tsconfig.json` into the server folder:
 ```json
