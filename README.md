@@ -45,59 +45,16 @@ paths like `/imports/client/foo` if you add to the `config.json` as follows:
 
 ## Typings
 
-There are several sources of typings you'll need to know about when developing a Meteor app with TypeScript:
-* Typings from NPM packages:
-  * More and more NPM packages come today with typings along with the source code files.
-    TypeScript finds main declaration file using `typings` field in the package.json and applies it automatically,
-    so users are free of worry about typings at all in this case.
-  * Special NPM packages that contain only typings.
-    Since 2.1.x there is a way to add NPMs with typings to the project globally.
-    Use `types` option of `tsconfig.json` and set a list of NPMs you want to use there (see Installation below).
-* Typings installed and managed by [`typings`](https://github.com/typings/typings) utility.
-   It's de-facto a major tool to manage typings today. Besides features to
-   search and install typings from DefinitelyTyped, it has own typings repository supported by the community.
-   So makes sense to give it at a try if you want to search typings easily as well as install them not only from
-   DefinitelyTyped but from GitHub repos and other sources.
-* Typings related to Meteor itself (NPMs and Atmosphere packages).
-   You can find most typings available for Meteor [here](https://github.com/meteor-typings).
-   Some of them are already published as NPM packages, which means they can be installed and used
-   as described above. If not, you can always install them with help of `typings` utility.
-   For more info, please read [here](https://github.com/meteor-typings/meteor).
-* Custom typings: user d.ts-files that contain custom declarations.
+Install Meteor typings by `npm i @types/meteor`.
 
-### Installation
-
-To install Meteor declaration files, install `meteor-typings` NPM and
-change `tsconfig.json` as follows:
-```json
-{
-  "compilerOptions": {
-    "types": ["meteor-typings"]
-  }
-}
-```
-
-This way you can install typings globally from various NPMs.
-For example, there is a special NPM scope called `@types` supported by the TypeScript authors,
-which currently contains NPM repos with all typings from
-[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repo.
-
-Rule of thumb: use `typings` utility to seach typings in DefinitelyTyped repo and install them as NPMs from
-`@types` scope.
-
-For more information about Meteor typings, please read README at https://github.com/meteor-typings/meteor.
-
-### Typings Processing
+### Custom Typings
 
 Typings files are processed in the same way as regular ts-files. 
-It means that if you place a declaration file into, for example, server folder
-it will be used only for the server code only.
+If you place a declaration file into server folder it will be used only for the server code only.
 
-> Please note that any change to global typings will cause diagnostics re-evaluation (though it's less heavy than re-compilation) of the whole project,
-> including the case when references (see below) added or removed from ts-files.
-
-If you change some custom declaration file often, it makes sence to reference it in some main ts-file
-but exclude in the config:
+Note that any change to a global declaration file will cause diagnostics re-evaluation.
+Hence, if you change some custom declaration file often, makes sence to reference it in some main ts-file
+and exclude in the config, i.e.:
 ```ts
  /// <reference path="typings/foo.d.ts" />
 ```
@@ -127,7 +84,7 @@ which allow to configure behavior of some parts of the compiled TypeScript code 
 
 ## Credits
 
-Thanks @urigo (Uri) for his constant support and resources to continue 
+Thanks @urigo (Uri) for his support and resources to continue 
 development of this project.
 
 ## License
