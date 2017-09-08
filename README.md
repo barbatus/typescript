@@ -17,7 +17,7 @@ Default compiler options as JSON:
 ````
 ## ES6
 
-From Meteor 1.4 and on, it's possible to use ES6 on the server.
+From Meteor 1.4 and on it's possible to use ES6 on the server.
 
 If you want to compile into ES6 on the server, put a `tsconfig.json` into the server folder:
 ```json
@@ -44,7 +44,7 @@ paths like `/imports/client/foo` if you add to the `config.json` as follows:
 
 ## Typings
 
-Install Meteor typings by `npm i @types/meteor`, and you are all set set to go.
+Install Meteor typings by `npm i @types/meteor` and you are ready to go.
 
 ### Custom Typings
 
