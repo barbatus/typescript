@@ -1,6 +1,6 @@
 Tinytest.addAsync('typescript - runtime - async', (test, onComplete) => {
   {
-    async function service() { return await Promise.resolve(1); }
+    async function service() { return 1; }
 
     service().then(result => {
       test.equal(result, 1);

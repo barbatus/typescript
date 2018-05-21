@@ -2,7 +2,7 @@
 
 TypeScript files are compiled into ES5 and CommonJS modules by default.
 
-> Based on TypeScript@2.5.3
+> Based on TypeScript@2.8.3
 
 Default compiler options as JSON:
 ````json
@@ -17,7 +17,7 @@ Default compiler options as JSON:
 ````
 ## ES6
 
-From Meteor 1.4 and on it's possible to use ES6 on the server.
+It's possible to use ES6 on the server with Meteor >= 1.4.
 
 If you want to compile into ES6 on the server, put a `tsconfig.json` into the server folder:
 ```json
