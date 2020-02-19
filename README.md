@@ -1,3 +1,4 @@
+## Deprecated! Use https://atmospherejs.com/adornis/typescript
 ## TypeScript Compiler for Meteor
 
 TypeScript files are compiled into ES5 and CommonJS modules by default.
